@@ -13,6 +13,15 @@ public class Branch {
         this.branchCustomers = new ArrayList<Customer>();
     }
 
+    public void addCustomer(Customer customer){
+        this.branchCustomers.add(customer);
+    }
 
+    public String getBranchName() {
+        return branchName;
+    }
 
+    public ArrayList<Customer> getBranchCustomers() {
+        return branchCustomers;
+    }
 }
