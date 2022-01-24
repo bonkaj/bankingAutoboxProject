@@ -13,8 +13,31 @@ public class Branch {
         this.branchCustomers = new ArrayList<Customer>();
     }
 
-    public void addCustomer(Customer customer){
-        this.branchCustomers.add(customer);
+    public boolean addCustomer(String customerName, double initialAmount){
+        if (findcustomer(customerName) == null){
+            this.branchCustomers.add(new Customer(customerName, initialAmount));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addCustomerTransaction(String customerName, double transaction){
+        Customer existingCustomer = findCustomer(customerName);
+        if (existingCustomer != null){
+            existingCustomer.addTransaction(transaction);
+            return true;
+        }
+        return false;
+    }
+
+    private Customer findCustomer (String customerName){
+        for (int i=0; i<this.branchCustomers.size(); i++){
+            Customer checkedCustomer = this.branchCustomers.get(i);
+            if(checkedCustomer.getName().equals(customerName)){
+                return checkedCustomer;
+            }
+        }
+        return null;
     }
 
     public String getBranchName() {
