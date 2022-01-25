@@ -8,13 +8,13 @@ public class Branch {
     private String branchName;
     private ArrayList<Customer> branchCustomers;
 
-    public Branch (String name, Customer branchCustomer){
+    public Branch(String name){
         this.branchName = name;
         this.branchCustomers = new ArrayList<Customer>();
     }
 
-    public boolean addCustomer(String customerName, double initialAmount){
-        if (findcustomer(customerName) == null){
+    public boolean newCustomer(String customerName, double initialAmount){
+        if (findCustomer(customerName) == null){
             this.branchCustomers.add(new Customer(customerName, initialAmount));
             return true;
         }
